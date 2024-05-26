@@ -74,6 +74,14 @@ export default async ({ msgId, userId, userName }: IKeyboardEventPayload) => {
           },
         ]
       : [],
+    isSubActive
+      ? [
+          {
+            text: '🔐 Запросить одноразовый код 🔐',
+            callback_data: 'page$authCode',
+          },
+        ]
+      : [],
     [{ text: '❓ Поддержка ❓', callback_data: 'page$support' }],
     isAdmin ? [{ text: 'Админка', callback_data: 'page$admin' }] : [],
   ];

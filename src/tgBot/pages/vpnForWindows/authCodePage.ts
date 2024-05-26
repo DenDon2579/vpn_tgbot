@@ -23,7 +23,7 @@ export default async ({
     message_id: msgId,
     reply_markup: {
       inline_keyboard: [
-        [{ text: 'Назад', callback_data: 'page$vpnForWindows' }],
+        [{ text: '🏠 На главную 🏠', callback_data: 'page$home' }],
       ],
     },
   });

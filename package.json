@@ -1,0 +1,22 @@
+{
+  "name": "vpn_tg",
+  "version": "1.0.0",
+  "main": "index.js",
+  "license": "MIT",
+  "scripts": {
+    "dev": "concurrently \"tsc -w\" \"nodemon dist/index.js\""
+  },
+  "dependencies": {
+    "@types/luxon": "^3.4.2",
+    "dotenv": "^16.4.5",
+    "luxon": "^3.4.4",
+    "mongodb": "^6.6.2",
+    "node-telegram-bot-api": "^0.66.0"
+  },
+  "devDependencies": {
+    "@types/node-telegram-bot-api": "^0.64.6",
+    "concurrently": "^8.2.2",
+    "nodemon": "^3.1.0",
+    "typescript": "^5.4.5"
+  }
+}

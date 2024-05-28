@@ -2,10 +2,9 @@ import TelegramBot from 'node-telegram-bot-api';
 import pagesRouter from './pagesRouter';
 import homePage from './pages/home/homePage';
 import welcomePage from './pages/welcome/welcomePage';
-import dotenv from 'dotenv';
+import { TOKEN } from '../params';
 
-dotenv.config();
-export const bot = new TelegramBot(process.env.TOKEN || '');
+export const bot = new TelegramBot(TOKEN, {});
 
 interface ILastBotMessageId {
   [key: string]: number;

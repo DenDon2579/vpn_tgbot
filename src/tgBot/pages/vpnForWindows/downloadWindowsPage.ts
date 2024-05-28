@@ -1,6 +1,6 @@
 import { bot } from '../..';
+import { SETUP_ID } from '../../../params';
 import { IKeyboardEventPayload } from '../../../types/bot';
-import dotenv from 'dotenv';
 
 export default async ({
   msgId,
@@ -8,9 +8,6 @@ export default async ({
   userName,
   custom: isFirstTime,
 }: IKeyboardEventPayload) => {
-  dotenv.config();
-  const fileID = process.env.SETUP_ID || '';
-
   // await bot.editMessageText(message, {
   //   parse_mode: 'HTML',
   //   chat_id: userId,
@@ -23,7 +20,7 @@ export default async ({
 
   await bot.deleteMessage(userId, msgId);
   // });
-  await bot.sendDocument(userId, fileID, {
+  await bot.sendDocument(userId, SETUP_ID, {
     caption: '<b>Ваш установочный файл</b>',
     parse_mode: 'HTML',
     reply_markup: {

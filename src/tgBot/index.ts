@@ -4,7 +4,12 @@ import homePage from './pages/home/homePage';
 import welcomePage from './pages/welcome/welcomePage';
 import { TOKEN } from '../params';
 
-export const bot = new TelegramBot(TOKEN, {});
+export const bot = new TelegramBot(TOKEN, {
+  polling: {
+    interval: 300,
+    autoStart: false,
+  },
+});
 
 interface ILastBotMessageId {
   [key: string]: number;
@@ -13,7 +18,6 @@ export const lastBotMessageId: ILastBotMessageId = {};
 
 export const startBot = async () => {
   bot.startPolling();
-
   bot.on('text', async (msg): Promise<void> => {
     try {
       if (msg.text === '/start') {

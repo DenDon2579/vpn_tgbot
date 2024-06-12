@@ -6,8 +6,10 @@ export default async ({
   msgId,
   userId,
   userName,
-  custom: isFirstTime,
+  custom,
 }: IKeyboardEventPayload) => {
+  const isFirstTime = JSON.parse(custom);
+
   const message = `<b>Ne4Net - Оформление подписки:</b>\n
 <b>Выберите срок подписки 🗓:</b>${
     isFirstTime

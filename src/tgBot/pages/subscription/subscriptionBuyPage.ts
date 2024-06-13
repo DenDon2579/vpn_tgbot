@@ -10,7 +10,7 @@ export default async ({
 }: IKeyboardEventPayload) => {
   let isFirstTime = false;
 
-  if (!custom) {
+  if (custom) {
     isFirstTime = JSON.parse(custom);
   }
 

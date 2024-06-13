@@ -3,8 +3,9 @@ dotenv.config();
 
 export const subscriptionCost = {
   '30': 200,
-  '60': 380,
-  '90': 560,
+  '60': 360,
+  '90': 500,
+  '365': 1450,
 };
 
 export const SETUP_ID = process.env.SETUP_ID || '';

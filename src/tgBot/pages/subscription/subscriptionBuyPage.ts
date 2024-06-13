@@ -34,14 +34,18 @@ export default async ({
             callback_data: 'page$subscriptionPay$30',
           },
           {
-            text: '💵 +60 дней. - 380 руб',
+            text: '💵 +60 дней. - 360 руб',
             callback_data: 'page$subscriptionPay$60',
           },
         ],
         [
           {
-            text: '💵 +90 дней. - 560 руб',
+            text: '💵 +90 дней. - 500 руб',
             callback_data: 'page$subscriptionPay$90',
+          },
+          {
+            text: '💵 +365 дней. - 1450 руб',
+            callback_data: 'page$subscriptionPay$365',
           },
         ],
         isFirstTime

@@ -9,19 +9,17 @@ export default async ({
   userName,
   custom: isFirstTime,
 }: IKeyboardEventPayload) => {
-  try {
-    await bot.sendDocument(userId, SETUP_ID, {
-      caption: '<b>Ваш установочный файл</b>',
-      parse_mode: 'HTML',
-      reply_markup: {
-        inline_keyboard: [
-          [{ text: '🏠 На главную 🏠', callback_data: '@page$home' }],
-        ],
-      },
-    });
+  const message = `<b>Ne4Net - Windows приложение | Загрузка:</b>\n
+	<b>Загрузите установщик: <a href="https://disk.yandex.ru/d/JPXz1QHEqPfshQ">Yandex диск</a></b>`;
 
-    await bot.deleteMessage(userId, msgId);
-  } catch (e) {
-    await homePage({ msgId: 0, userId: userId, userName: '' });
-  }
+  await bot.editMessageText(message, {
+    parse_mode: 'HTML',
+    chat_id: userId,
+    message_id: msgId,
+    reply_markup: {
+      inline_keyboard: [
+        [{ text: 'Назад', callback_data: 'page$vpnForWindows' }],
+      ],
+    },
+  });
 };

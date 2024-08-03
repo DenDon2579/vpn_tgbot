@@ -5,7 +5,12 @@ import { mongoDB } from '../../../mongo';
 import { DateTime, Duration } from 'luxon';
 import { adminId } from '../../../params';
 
-export default async ({ msgId, userId, userName }: IKeyboardEventPayload) => {
+export default async ({
+  msgId,
+  userId,
+  userName,
+  custom,
+}: IKeyboardEventPayload) => {
   const userData = await mongoDB
     .collection('users')
     .findOne({ telegramID: userId });
@@ -70,7 +75,7 @@ export default async ({ msgId, userId, userName }: IKeyboardEventPayload) => {
       ? [
           {
             text: '📱 VPN для Android / IOS 📱',
-            callback_data: 'page$MobileVpn',
+            callback_data: 'page$vpnForMobile',
           },
         ]
       : [],
@@ -83,8 +88,20 @@ export default async ({ msgId, userId, userName }: IKeyboardEventPayload) => {
         ]
       : [],
     [{ text: '❓ Поддержка ❓', callback_data: 'page$support' }],
+    [{ text: '❓ Обновить меню ❓', callback_data: 'page$home$refresh' }],
     isAdmin ? [{ text: 'Админка', callback_data: 'page$admin' }] : [],
   ];
+
+  if (custom === 'refresh' && msgId) {
+    await bot.deleteMessage(userId, msgId);
+    await bot.sendMessage(userId, message, {
+      parse_mode: 'HTML',
+      reply_markup: {
+        inline_keyboard: keyboard,
+      },
+    });
+    return;
+  }
 
   if (msgId) {
     await bot.editMessageText(message, {

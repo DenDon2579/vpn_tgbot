@@ -6,6 +6,7 @@ import subscriptionBuyPage from './pages/subscription/subscriptionBuyPage';
 import subscriptionPayPage from './pages/subscription/subscriptionPayPage';
 import subscriptionRequestOkPage from './pages/subscription/subscriptionRequestOkPage';
 import supportPage from './pages/support/supportPage';
+import vpnForMobilePage from './pages/vpnForMobile/vpnForMobilePage';
 import authCodePage from './pages/vpnForWindows/authCodePage';
 import downloadWindowsPage from './pages/vpnForWindows/downloadWindowsPage';
 import vpnForWindowsPage from './pages/vpnForWindows/vpnForWindowsPage';
@@ -25,6 +26,7 @@ const router: IRouter = {
   downloadWindows: downloadWindowsPage,
   authCode: authCodePage,
   support: supportPage,
+  vpnForMobile: vpnForMobilePage,
 };
 
 export default router;

@@ -88,7 +88,7 @@ export default async ({
         ]
       : [],
     [{ text: '❓ Поддержка ❓', callback_data: 'page$support' }],
-    [{ text: '❓ Обновить меню ❓', callback_data: 'page$home$refresh' }],
+    [{ text: '🔄 Обновить меню 🔄', callback_data: 'page$home$refresh' }],
     isAdmin ? [{ text: 'Админка', callback_data: 'page$admin' }] : [],
   ];
 
